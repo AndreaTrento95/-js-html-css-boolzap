@@ -59,6 +59,19 @@
 
             <input type="text" placeholder="Cerca o inizia una nuova chat">
             <i class="fas fa-search"></i>
+
+            <div class="avatar-container">
+
+                <div
+                   class="avatar"
+                   v-for="(avatar, index) in contacts"
+
+                >
+                    <img :src="printImg(index)" alt=""> 
+                    <span><strong>{{ avatar.name }}</strong></span>
+                </div>
+
+            </div>
             
             
         </aside>
