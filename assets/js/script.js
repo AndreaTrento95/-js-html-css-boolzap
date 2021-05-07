@@ -89,15 +89,14 @@ const app = new Vue({
                     }
                 ],
             },
-        ]
+        ],
 
     },
 
     methods:{
        printImg(index){
-           return this.percorso + this.contacts[index].avatar
+           return this.percorso + this.contacts[index].avatar +'.jpg'
        }
-        
-    }
+    },
 
 });
