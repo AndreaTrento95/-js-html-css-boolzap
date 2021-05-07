@@ -131,6 +131,7 @@ body{
     width: 95%;
     padding: 5px 0 5px 50px; 
     margin: 10px;
+    margin-bottom: 20px;
     border-radius: 5px;
     border: 0;
     font-size: 0.8em;
@@ -148,7 +149,7 @@ body{
 /* avatar container */
 .container .left .avatar-container{
     width: calc(100% - 15px);
-    height: calc(100% - 186px);
+    height: calc(100% - 195px);
     border-right: 1px solid lightgrey;
     background-color: white;
 }
