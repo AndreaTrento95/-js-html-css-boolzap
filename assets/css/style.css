@@ -56,8 +56,9 @@ body{
     width: 100%;
     height: calc(100% - 130px);
     background-image: url(../img/mine.jpg);
-    overflow: auto;
+    overflow-y: auto;
     border-right: 15px solid white;
+    padding: 5% 10%;
 }
 
 /* ------ LEFT --------*/
@@ -152,6 +153,7 @@ body{
     height: calc(100% - 195px);
     border-right: 1px solid lightgrey;
     background-color: white;
+    overflow-y: auto;
 }
 
 .container .left .avatar-container .avatar{
@@ -221,6 +223,51 @@ body{
 
 /* section */
 
+.container .right section .message{
+    position: relative;
+    margin: 5px 0;
+    padding: 15px 15px 20px 13px;
+    min-width: 40%;
+    max-width: 60%;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+.container .right section .message.sent{
+    float: right;
+    background-color: rgb(213, 249, 187);
+    clear: both;
+}
+
+.container .right section .message.received{
+    float: left;
+    clear: both;
+    background-color: white;
+}
+
+.container .right section .message p{
+    font-weight: bolder;
+}
+
+.container .right section .message span{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-size: 0.7em;
+    color: lightslategrey;
+}
+
+.container .right section .message i{
+    display: none;
+    position: absolute;
+    right: 10px;
+    color: lightslategrey;
+    top: 15px;
+}
+
+.container .right section .message:hover i{
+    display: block;
+}
 
 
 /* footer */
