@@ -1,0 +1,297 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.font-min{
+    font-size: 0.8em;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: linear-gradient(to bottom,
+    #249688 0px,
+    #5c9992 15vh,
+    #DADBD4 15vh,
+    #DADBD4 100vh
+    );
+    font-family: 'Lato', sans-serif;
+}
+
+.container{
+    flex-basis: 80%;
+    min-width: 900px;
+    height: 95%;
+    background-color: white;
+}
+
+.container .left,
+.container .right{
+    float: left;
+    height: 100%;
+}
+
+.container .left{
+    position: relative;
+    width: 35%;
+    background-color: rgb(250, 250, 250);
+    border-right: 1px solid gray;
+}
+
+.container .right{
+    width: 65%;
+}
+
+.container .right header,
+.container .right footer{
+    height: 65px;
+    background-color: rgb(234, 234, 234);
+}
+
+.container .right section{
+    width: 100%;
+    height: calc(100% - 130px);
+    background-image: url(../img/mine.jpg);
+    overflow-y: auto;
+    border-right: 15px solid white;
+    padding: 5% 10%;
+}
+
+/* ------ LEFT --------*/
+/* top */
+.container .left .top{
+    display: flex;
+    justify-content: space-between;
+    height: 65px;
+    background-color: rgb(234, 234, 234);
+} 
+
+.container .left .top .utente{
+    display: flex;
+    align-items: center;
+}
+
+.container .left .top .utente img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.container .left .top .icon{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.container .left .top .icon > i{
+    font-size: 20px;
+    margin: 0 10px;
+    color: rgb(177, 177, 177);
+}
+
+/* not */
+.container .left .not{
+    display: flex;
+    align-items: center;
+    height: 75px;
+    background-color: rgb(142, 219, 252);
+}
+
+.container .left .not .icon{
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: white;
+    margin-left: 10px;
+}
+
+.container .left .not .icon i{
+    font-size: 20px;
+    color: rgb(142, 219, 252);
+}
+
+.container .left .not .message{
+    margin-left: 10px;
+}
+
+.container .left .not .message p{
+    margin-top: 3px;
+    color: rgb(80, 116, 134);
+    text-decoration: underline;
+}
+
+/* input */
+.container .left input{
+    width: 95%;
+    padding: 5px 0 5px 50px; 
+    margin: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 0;
+    font-size: 0.8em;
+    box-shadow: 1px grey;
+}
+
+.container .left > i{
+    position: absolute;
+    top: 25%;
+    left: 15px;
+    font-size: 15px;
+    color: rgb(177, 177, 177);
+}
+
+/* avatar container */
+.container .left .avatar-container{
+    width: calc(100% - 15px);
+    height: calc(100% - 195px);
+    border-right: 1px solid lightgrey;
+    background-color: white;
+    overflow-y: auto;
+}
+
+.container .left .avatar-container .avatar{
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid lightgrey;
+}
+
+.container .left .avatar-container .avatar:last-child{
+    border: none;
+}
+
+.container .left .avatar-container .avatar.active{
+    background-color: rgb(234, 234, 234);
+}
+
+.container .left .avatar-container .avatar img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+
+
+/* ------- RIGHT --------*/
+.container .right header{
+    display: flex;
+}
+
+/* left */
+.container .right header .left{
+    display: flex;
+    align-items: center;
+    background-color: rgb(234, 234, 234);
+    border: none;
+}
+
+.container .right header .left .img img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.container .right header .left .message{
+    margin-left: 10px;
+
+}
+.container .right header .left .message p{
+    margin-top: 5px;
+    color: rgb(177, 177, 177);
+}
+/* right */
+.container .right header .right{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    background-color: rgb(234, 234, 234);
+}
+.container .right header .right .icons > i{
+    font-size: 20px;
+    margin: 0 15px;
+    color: rgb(177, 177, 177);
+}
+
+
+/* section */
+
+.container .right section .message{
+    position: relative;
+    margin: 5px 0;
+    padding: 15px 15px 20px 13px;
+    min-width: 40%;
+    max-width: 60%;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+.container .right section .message.sent{
+    float: right;
+    background-color: rgb(213, 249, 187);
+    clear: both;
+}
+
+.container .right section .message.received{
+    float: left;
+    clear: both;
+    background-color: white;
+}
+
+.container .right section .message p{
+    font-weight: bolder;
+}
+
+.container .right section .message span{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-size: 0.6em;
+    color: lightslategrey;
+}
+
+.container .right section .message i{
+    display: none;
+    position: absolute;
+    right: 10px;
+    color: lightslategrey;
+    top: 15px;
+}
+
+.container .right section .message:hover i{
+    display: block;
+}
+
+
+/* footer */
+.container .right footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(243, 238, 234);
+    padding: 15px;
+}
+
+.container .right footer i {
+    font-size: 20px;
+    color: rgb(177, 177, 177);
+}
+
+.container .right footer input{
+    width: 600px;
+    padding: 15px 10px;
+    border-radius: 5px;
+    border: none;
+    color: gray;
+}
+
+
+
+
