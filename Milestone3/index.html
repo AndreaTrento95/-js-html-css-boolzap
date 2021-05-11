@@ -117,12 +117,14 @@
                         v-for="(message in contacts[contactActive].messages"
                         class="message"
                         :class="message.status"
+                        v-if="( !inputText ) ? printMessage : ' ' "
                         
                     
                     >
                         <p>{{ message.text }}</p>
                         <span>{{ message.date }}</span>
                         <i class="fas fa-chevron-down"></i>
+
                     </div>
 
                 </div>
@@ -138,6 +140,7 @@
                     type="text"
                     placeholder="Scrivi un messaggio"
                     v-model="inputText"
+                    keyup.enter="printMessage"
                     
 
                 >
