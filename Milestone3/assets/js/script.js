@@ -100,8 +100,39 @@ const app = new Vue({
        printImg(index){
            return this.percorso + this.contacts[index].avatar +'.jpg'
        },
+
+
        printMessage(){
-           return console.log(ok);
+            if(this.inputText.length > 0){
+                this.pushMessage(this.inputText, 'sent');
+                this.inputText= '';
+            
+                setTimeout(() =>{
+                this.pushMessage('ok', 'received');
+                }, 1000);
+            }
+       },
+    
+       pushMessage(text, status){
+            this.contacts[this.  contactActive].messages.push({
+                date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+                text: text,
+                status: status
+       });
+       },
+
+       lastAccess(index){
+           let contact = this.contacts[index].messages;
+           return contact[contact.length-1].date;
+       },
+
+       lastMessage(index){
+            let contact = this.contacts[index].messages;
+            if(contact[contact.length-1].text.length > 30){
+                let spliceMsg = contact[contact.length-1].text.slice(0, 30) + '...';
+                return spliceMsg;
+            }
+            return contact[contact.length-1].text;
        }
 
     },

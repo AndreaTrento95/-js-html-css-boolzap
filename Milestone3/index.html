@@ -69,7 +69,14 @@
                    :class="(contactActive === index) ? 'active' : null "
                 >
                     <img :src="printImg(index)" alt=""> 
-                    <span><strong>{{ avatar.name }}</strong></span>
+
+                    <div class="text">
+                        <span><strong>{{ avatar.name }}</strong></span>
+                        <small>{{ lastMessage(index) }}</small>
+                    </div>
+                    
+                    <span class="time font-min">{{ lastAccess(index) }}</span>
+                    
                 </div>
 
             </div>
@@ -91,7 +98,7 @@
 
                     <div class="message">
                         <span><strong>{{ contacts[contactActive].name }}</strong></span><br>
-                        <p class="font-min"><strong>Ultimo accesso alle</strong></p>
+                        <p class="font-min"><strong>Ultimo accesso alle: {{ lastAccess(contactActive) }}</strong></p>
                     </div>
 
                 </div>
@@ -117,7 +124,7 @@
                         v-for="(message in contacts[contactActive].messages"
                         class="message"
                         :class="message.status"
-                        v-if="( !inputText ) ? printMessage : ' ' "
+                        
                         
                     
                     >
@@ -139,8 +146,8 @@
                 <input
                     type="text"
                     placeholder="Scrivi un messaggio"
-                    v-model="inputText"
-                    keyup.enter="printMessage"
+                    v-model.trim="inputText"
+                    @keyup.enter="printMessage"
                     
 
                 >
@@ -154,7 +161,8 @@
     </div>
     
 
-
+    <!-- DAY JS -->
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.4/dayjs.min.js"></script>
 
     <script src="assets/js/script.js"></script>
 </body>
