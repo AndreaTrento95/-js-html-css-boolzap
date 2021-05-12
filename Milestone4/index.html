@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boolzap</title>
+    <!-- VUE -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+    <!--  FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <div id="app" class="container">
+
+       <!--  LEFT -->
+        <aside class="left">
+
+            <!-- top -->
+            <div class="top">
+                <div class="utente">
+
+                    <img src="assets/img/avatar_io.jpg" alt="">
+                    <span><strong>Nome Utente</strong></span>
+    
+                </div>
+    
+                <div class="icon">
+    
+                    <i class="fas fa-circle-notch"></i>
+                    <i class="fas fa-comment-alt"></i>
+                    <i class="fas fa-ellipsis-v"></i>
+    
+                </div>
+            </div>
+            <!-- /top -->
+
+            <!-- notification -->
+            <div class="not">
+
+                <div class="icon">
+                    <i class="fas fa-bell-slash"></i>
+                </div>
+
+                <div class="message">
+                    <span><strong>Ricevi notifiche di nuovi messaggi</strong></span><br>
+                    <p class="font-min">Attiva notifiche desktop</p>
+                </div>
+
+            </div>
+            <!-- / notification -->
+
+            <input type="text" placeholder="Cerca o inizia una nuova chat">
+            <i class="fas fa-search"></i>
+
+            <div class="avatar-container">
+
+                <div
+                   class="avatar"
+                   v-for="(avatar, index) in contacts"
+                   @click="(contactActive = index)"
+                   :class="(contactActive === index) ? 'active' : null "
+                >
+                    <img :src="printImg(index)" alt=""> 
+
+                    <div class="text">
+                        <span><strong>{{ avatar.name }}</strong></span>
+                        <small>{{ lastMessage(index) }}</small>
+                    </div>
+                    
+                    <span class="time font-min">{{ lastAccess(index) }}</span>
+                    
+                </div>
+
+            </div>
+            
+            
+        </aside>
+        <!--  /LEFT -->
+
+        <main class="right">
+
+            <!-- HEADER -->
+            <header>
+
+                <div class="left">
+
+                    <div class="img">
+                        <img :src="printImg(contactActive)" alt="">
+                    </div>
+
+                    <div class="message">
+                        <span><strong>{{ contacts[contactActive].name }}</strong></span><br>
+                        <p class="font-min"><strong>Ultimo accesso alle: {{ lastAccess(contactActive) }}</strong></p>
+                    </div>
+
+                </div>
+
+
+                <div class="right">
+                    <div class="icons">
+                        <i class="fas fa-search"></i>
+                        <i class="fas fa-paperclip"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                </div>
+
+            </header>
+            <!-- /HEADER -->
+
+            <!-- SECTION -->
+            <section>
+
+                <div class="messages">
+
+                    <div
+                        v-for="(message in contacts[contactActive].messages"
+                        class="message"
+                        :class="message.status"
+                        
+                        
+                    
+                    >
+                        <p>{{ message.text }}</p>
+                        <span>{{ message.date }}</span>
+                        <i class="fas fa-chevron-down"></i>
+
+                    </div>
+
+                </div>
+
+            </section>
+            <!-- /SECTION -->
+
+            <!-- FOOTER -->
+            <footer>
+
+                <i class="fas fa-smile"></i>
+                <input
+                    type="text"
+                    placeholder="Scrivi un messaggio"
+                    v-model.trim="inputText"
+                    @keyup.enter="printMessage"
+                    
+
+                >
+                <i class="fas fa-microphone"></i>
+
+            </footer>
+            <!-- /FOOTER -->
+
+        </main>
+        
+    </div>
+    
+
+    <!-- DAY JS -->
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.4/dayjs.min.js"></script>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
