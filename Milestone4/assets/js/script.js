@@ -142,7 +142,7 @@ const app = new Vue({
                 if(contact.name.toLowerCase().includes(this.searchText.toLowerCase())){
                     contact.visible = true;
                 }else{
-                    contact.visible = false;
+                    contact.visible = false;        
                 }
            })
        }
