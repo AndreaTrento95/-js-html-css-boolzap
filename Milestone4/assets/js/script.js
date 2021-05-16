@@ -1,3 +1,6 @@
+/* Milestone 4
+Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina) */
+
 const app = new Vue({
 
     el: '#app',
@@ -91,8 +94,8 @@ const app = new Vue({
             },
         ],
         contactActive: 0,
-        inputText: ''
-
+        inputText: '',
+        searchText: ''
     },
 
     methods:{
@@ -133,6 +136,15 @@ const app = new Vue({
                 return spliceMsg;
             }
             return contact[contact.length-1].text;
+       },
+       searchContact(){
+           this.contacts.forEach((contact) => {
+                if(contact.name.toLowerCase().includes(this.searchText.toLowerCase())){
+                    contact.visible = true;
+                }else{
+                    contact.visible = false;
+                }
+           })
        }
 
     },
